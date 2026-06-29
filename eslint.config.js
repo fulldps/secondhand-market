@@ -20,5 +20,13 @@ export default defineConfig([
       globals: globals.browser,
     },
   },
+  {
+    // shadcn/ui primitives export a component alongside its variants
+    // (e.g. Button + buttonVariants); fast-refresh rule doesn't apply here.
+    files: ['src/shared/ui/**/*.tsx'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
   prettier,
 ]);
